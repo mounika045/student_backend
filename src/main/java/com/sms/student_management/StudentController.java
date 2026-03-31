@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = {
+    "http://localhost:3000",
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "https://student-frontend-fdxo.vercel.app"
+})
 @RequestMapping("/students")
 public class StudentController {
 
@@ -29,9 +34,10 @@ public class StudentController {
     public Student addStudent(@RequestBody Student student){
         return studentRepository.save(student);
     }
-  @DeleteMapping("/{id}")
-public void deleteStudent(@PathVariable Long id) {
-    studentRepository.deleteById(id);
-}  
+
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable Long id) {
+        studentRepository.deleteById(id);
+    }
 
 }
