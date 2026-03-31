@@ -6,4 +6,4 @@ COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-ENTRYPOINT ["java","-jar","target/back-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","target/student-management-0.0.1-SNAPSHOT.jar"]
